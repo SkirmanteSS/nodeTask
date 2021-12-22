@@ -1,70 +1,67 @@
-import express from "express";
 import mysql from "mysql2/promise";
-import { config } from "dotenv";
+import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 
-config();
+import { jwtPassword } from "./config";
 
-const main = async () => {
-    const app = express();
-
-    const {MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PW} =  process.env;
-
+const getUserDetails = (req) => {
     try {
-
-        const connection = await mysql.createConnection({
-            host: MYSQL_HOST,
-            port: MYSQL_PORT,
-            user: MYSQL_USER,
-            password: MYSQL_PW,
-            database: "users",
-        });
-
-        const createBillsTable = `CREATE TABLE IF NOT EXISTS Bills ( 
-            id INTEGER NOT NULL AUTO_INCREMENT,
-            group_id INT NOT NULL,
-            description TEXT NOT NULL,
-            amount DECIMAL(3, 2) NOT NULL,
-            PRIMARY KEY (id)),
-            FOREIGN KEY (group_id) REFERENCES groups (id)`;
-            
-        const createUsersTable = `CREATE TABLE IF NOT EXISTS Users ( 
-            id INTEGER NOT NULL AUTO_INCREMENT,
-            full_name TEXT (20) NOT NULL,
-            email VARCHAR (50) NOT NULL,
-            password VARCHAR (50) NOT NULL,
-            REG_TIMESTAMP INTEGER,
-            PRIMARY KEY (id))`;
-
-        const createGroupsTable = `CREATE TABLE IF NOT EXISTS Groups (
-            id INTEGER NOT NULL AUTO_INCREMENT,
-            full_name TEXT (20) NOT NULL,
-            PRIMARY KEY (id))`;
-
-        const createAccountsTable = `CREATE TABLE IF NOT EXISTS Accounts ( 
-            id INTEGER NOT NULL AUTO_INCREMENT,
-            group_id INTEGER NOT NULL,
-            user_id INTEGER NOT NULL,
-            PRIMARY KEY (id);
-            FOREIGN KEY (group_id) REFERENCES groups (id),
-            FOREIGN KEY (user_id) REFERENCES users (id))`;
-                
-        await connection.query(createUsersTable);
-        await connection.query(createBillsTable);
-        await connection.query(createGroupsTable);
-        await connection.query(createAccountsTable);
-                
-        app.get("/", (req, res) => {
-            res.send({
-                ip: req.ip,  
-            });
-        });
-
-        app.listen(8080, () => {
-        console.log("http://localhost:8080");
-        });
-    } catch (error) {
-        console.log(error);
+      const token = req.headers.authorization
+        ? req.headers.authorization.split(' ')[1]
+        : '';
+      return jwt.verify(token, jwtPassword);
+    } catch (err) {
+      return null;
     }
+  };
+
+dotenv.config();
+mysql2/promise.config();
+
+const { port } = require('./config');
+const auth = require('./routes/v1/auth');
+const accounts = require('./routes/v1/accounts');
+const bills = require('./routes/v1/bills');
+
+const app = express();
+
+const isLoggedIn = (req, res, next) => {
+    const userDetails = getUserDetails(req);
+    if (userDetails) {
+      req.headers.userDetails = userDetails;
+      return next();
+    }
+    return res.status(401).send({ err: 'incorrect details' });
+  };
+
+module.exports = {
+    port: process.env.PORT || 8080,
+    jwtPassword: process.env.JWT_PASSWORD,
+    dbConfig: {
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      port: process.env.MYSQL_PORT,
+      database: process.env.MYSQL_DATABASE,
+    },
+  };
+
+const module = module.exports = {
+    getUserDetails,
+    isLoggedIn,
 };
 
-main();
+app.use(express.json());
+app.use(cors());
+app.use('/routes/register/', auth);
+app.use('/routes/accounts/', accounts);
+app.use('/routes/bills', bills);
+app.get('/', (req, res) => {
+  res.send({ msg: 'Server is running' });
+});
+
+app.get('*', (req, res) => {
+  res.status(404).send({ err: 'Page not found' });
+});
+
+app.listen(port, () => console.log(`Server is running on port ${port}`));
