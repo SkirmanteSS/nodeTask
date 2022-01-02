@@ -1,68 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div class="container">
-          <div class="header-content">
-            <img src="G-icon.png"/>
-            <h1>Split Bill</h1>
-          </div>
-        </div>
-      </header>
-      <main>
-        <div class="content">
-          <h2>Group's bills:</h2>
-          <div class="bills-table">
-            <table class="table is-striped is-hoverable user-bills">
-              <thead>
-                <th>ID</th>
-                <th>Description</th>
-                <th>Amount</th>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-        <div class="container">
-          <div class="new-bill">
-            <h4>Add Bill</h4>
-            <form id="add-new-bill">
-              <label class="label" for="amount">Amount:</label>
-              <input class="input is-medium" id="amount" type="number" />
-              <lapel class="label" for="description">Description:</lapel>
-              <textarea
-                class="textarea"
-                placeholder="Textarea"
-                id="description"
-              >
-              </textarea>
 
-              <div class="buttons">
-                <button
-                  class="submit, button is-link"
-                  id="submit-btn"
-                  type="submit"
-                >
-                  Add
-                </button>
-              </div>
-            </form>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>register</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="/Front/app.css">
+</head>
+
+<body>
+  <section class="h">
+    <header>
+      <div class="container">
+        <div class="Logo-picture">
+          <img
+            src="/Front/G-icon.png" alt="logo"/>
+          <h1>Split Bill</h1>
+        </div>
+        
+        <h3>Group's bills:</h3>
+      </div>
+    </header>
+  </section>
+
+  
+<table class="
+table is-bordered 
+is-striped is-narrow is-hoverable is-fullwidth is-12 is-6-desktop is-3-fullhd ">
+    <thead>
+      <tr>
+        <th><abbr title="ID">ID</abbr></th>
+        <th>Description</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>For Paper</td>  
+        <td>12eu</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>For electricity</td>  
+        <td>40eu</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>For the car</td>  
+        <td>500eu</td>
+      </tr>  
+    </tbody>
+  </table>
+
+  <section class="form">
+    <form action="register">
+      <div class="wrapper">
+        <div class="column is-12 is-6-desktop is-3-fullhd">
+          <div class="field">
+            <label class="label">Amount</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Amount">
+            </div>
           </div>
         </div>
-      </main>
-    </div>
-    <script type="module" src="bills.js"></script>
-  </body>
+
+        
+        <div class="column is-12 is-6-desktop is-3-fullhd">
+          <div class="field">
+            <div class="label">Description</div>
+              <p class="control">
+              <input class="input" type="Description" placeholder="Description">
+              
+        </div>
+
+            <div class="control">
+              <button class="button is-light">Add</button>
+              <span class="icon is-bold is-left">
+            </div>
+             
+        </div>
+
+    </form>
+</section>
+    <script type="module" src="register.js"></script>   
+</body>
 </html>

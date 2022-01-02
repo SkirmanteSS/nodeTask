@@ -1,62 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div class="container">
-          <div class="header-content">
-            <img src="Front/G-icon"
-            />
-            <h1>Split Bill</h1>
-          </div>
-          <h3>BEST IN MARKET</h3>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>register</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="/Front/app.css">
+</head>
+
+<body>
+  <section class="h">
+    <header>
+      <div class="container">
+        <div class="Logo-picture">
+          <img
+            src="/Front/G-icon.png" alt="logo"/>
+          <h1>Split Bill</h1>
         </div>
-      </header>
-      <main>
-        <div class="container">
-          <h2>Register</h2>
+        <h2>BEST IN MARKET</h2>
+      </div>
+    </header>
+  </section>
+
+  <section class="form">
+    <form action="register">
+      <div class="wrapper">
+
+        <div class="column is-12 is-6-desktop is-3-fullhd">
           <div class="field">
+            <div class="label">Register</div>
+            </div>  
+          </div>  
+        </div>
+        <div class="column is-12 is-6-desktop is-3-fullhd">
+          <div class="field">
+            <label class="label">Full name</label>
             <div class="control">
-              <form id="add-new-user">
-                <label class="label" for="name">Full Name</label>
-                <input class="input is-medium" type="name" id="log-name" />
-                <label class="label" for="email">Email</label>
-                <input class="input is-medium" type="email" id="log-email" />
-                <lapel class="label" for="password">Password</lapel>
-                <input class="input is-medium" type="password" id="password" />
-                <lapel class="label" for="password">Repeat password</lapel>
-                <input
-                  class="input is-medium"
-                  type="password"
-                  id="repeat-password"
-                />
-                <div class="buttons">
-                  <button
-                    class="submit, button is-link"
-                    id="submit-btn"
-                    type="submit"
-                  >
-                    Register
-                  </button>
-                </div>
-                </div>
-              </form>
+              <input class="input" type="text" placeholder="Full name">
             </div>
           </div>
         </div>
-      </main>
-    </div>
-    <script type="module" src="register.js"></script>
-  </body>
+
+        <div class="column is-12 is-6-fullhd">
+          <div class="">
+            <label class="label">Email</label>
+            <div class="control">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+                </span>
+              </p>
+          </div>
+        </div>
+
+        <div class="column is-12 is-6-desktop is-3-fullhd">
+          <div class="field">
+            <div class="label">Password</div>
+              <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>  
+          </div>  
+        </div>
+        
+        <div class="column is-12 is-6-desktop is-3-fullhd">
+          <div class="field">
+            <div class="label">Repeat Password</div>
+              <p class="control has-icons-left">
+              <input class="input" type="Repeatpassword" placeholder="RepeatPassword">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+            <div class="control">
+              <button class="button is-light">Register</button>
+              <span class="icon is-bold is-left">
+            </div>
+
+          <div>
+            <p>Or perhaps, just login?</a></p>
+            <script type="module" src="register.js"></script>  
+          </div>
+        </div>
+    </form>
+</section>  
+</body>
 </html>

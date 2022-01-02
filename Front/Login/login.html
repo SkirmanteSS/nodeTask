@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel ="stylesheet" href="/Front/app.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="register.js" defer></script>
   </head>
-  <body>
-    <div class="wrapper">
-      <header>
+<body>
+    <header>
         <div class="container">
-          <div class="header-content">
-            <img src="Front/G-icon">
+          <div class="Logo-picture">
+            <img src="/Front/G-icon.png"
+              alt="logo"
+            />
             <h1>Split Bill</h1>
           </div>
-          <h3>BEST IN MARKET</h3>
+          <h2>BEST IN MARKET</h2>
         </div>
       </header>
-      <main>
-        <div class="container">
-          <h4>Login</h4>
-          <form class="form create-login">
-            <label class="label" for="email">Email</label>
-            <input
-              class="input is-medium"
-              type="email"
-              id="log-email"
-              placeholder="aaa@aaa.com"
-            />
-            <lapel class="label" for="password">Password</lapel>
-            <input
-              class="input is-medium"
-              type="password"
-              id="password"
-              placeholder="passwor"
-            />
-            <div class="buttons">
-              <button
-                class="submit, button is-link"
-                id="submit-btn"
-                type="submit"
-              >
-                Login
-              </button>
+      
+      <div class="column is-12 is-6-desktop is-3-fullhd">
+        <div class="field">
+          <div class="label">Login</div>
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>  
+        </div>  
+      </div>
+            <div class="column is-12 is-6-fullhd">
+              <div class="field3">
+                <label class="label">Email</label>
+                <div class="control">
+                  <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Email">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                    </span>
+                  </p>
+              </div>
             </div>
-          </form>
-          <div>
-            <p>Don't have an account? <a href="register.html">Register</a></p>
-          </div>
-        </div>
-      </main>
-    </div>
-    <script type="module" src="login.js"></script>
-  </body>
+
+            <div class="column is-12 is-6-desktop is-3-fullhd">
+              <div class="field">
+                <div class="label">Password</div>
+                  <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>  
+              </div>  
+            </div>
+            
+            <div class="control">
+                <button class="button is-light fas fa-bold">Login</button>
+            </div>
+
+</body>
 </html>

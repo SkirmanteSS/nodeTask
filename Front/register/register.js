@@ -1,7 +1,7 @@
 const data = { fullName, email, password };
 
 
-fetch("http://localhost:8080/register",
+fetch("http://localhost:5052/register",
  {
       method: 'POST',
       headers: 
@@ -13,4 +13,4 @@ fetch("http://localhost:8080/register",
     })
     
 document.getElementById('add-new-user').addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault()});

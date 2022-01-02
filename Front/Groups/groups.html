@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Registration</title>
+    <link rel ="stylesheet" href="/Front/app.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="register.js" defer></script>
+</head>
+
+<body>
+   <header>
       <div class="container">
-        <div class="header-content">
-            <img src="Front/G-icon">
+        <div class="Logo-picture">
+          <img src="/Front/G-icon.png" alt="logo"/>
+        </div>
+      <div class="h1 h2">
           <h1>Split Bill</h1>
-        </div>
+          <h2>BEST IN MARKET</h2>
       </div>
+        </div>    
     </header>
-    <main>
-      <div class="content">
-        <h2>Select your group</h2>
-        <div class="all-groups">
-          <div class="groups-list"></div>
+  <section class="container is-bold p-5">
+        <form action="form">
+            <div class="h3">
+                <i class="fas fa-bold"></i>  
+                <h3>Add your group</h3>
+            </div> 
+
+<div class="buttons are-small">
+  <button class="button">ID 2</button>
+  <button class="button">ID5</button>
+  <button class="button">ID15</button>
+  <button class="button ">ID7</button>
+  <button class="button">ID1</button>
+</div>
+<section class="form">
+    <form action="register">
+      <div class="wrapper">
+        
+
+        
+        <div class="column is-12 is-6-desktop is-3-fullhd">
+          <div class="field">
+            <div class="label">Group ID</div>
+              <p class="control">
+              <input class="input" type="id" placeholder="id">
+              
         </div>
-        <div class="container">
-          <h4>Add group</h4>
-          <form id="add-new-group">
-            <label class="label" for="group-id">Group ID:</label>
-            <input class="input is-medium" type="text" id="group-id" />
-            <div class="buttons">
-              <button
-                class="submit, button is-link"
-                id="submit-btn"
-                type="submit"
-              >
-                Add
-              </button>
-            </div>
-          </form>
+
+        <div class="buttons">
+            <button class="button">Add
+              <span class="icon is-small">
+                <i class="fas fa-bold"></i>
+              </span>
+            </button>
         </div>
-      </div>
-    </main>
-    <script type="module" src="groups.js"></script>
-  </body>
+
+    </form>
+</section>
+    <script type="module" src="register.js"></script>   
+</body>
 </html>

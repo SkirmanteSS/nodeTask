@@ -1,25 +1,23 @@
-document.forms[0].addEventListener('submit', (e) => {
+const formLogin = document.forms[0].addEventListener('submit', async (e) => {
     e.preventDefault();
   
-    fetch("http://localhost:8080/register", {
+    fetch("http://localhost:5502/login", {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        email: e.target.elements[0].value,
-        password: e.target.elements[1].value,
+        email, password
       }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
+    });
+      const data = await req.json();
+     
         if (data.token) {
-          localStorage.setItem('token', data.token);
-          document.location = 'groups.html';
+          sessionStorage.setItem("token", data.token);
+          location.assign = './groups.html';
           return;
         } else {
-          alert(data.err || 'Ops something went wrong..');
-        }
-      })
-      .catch((err) => alert(err.message));
-  });
+          logMessage.innerHTML = 'Mistake';
+      } catch (err) {
+      console.log(err)
+    }
+
+  /*gauti vertes*/;
