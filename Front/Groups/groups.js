@@ -29,6 +29,6 @@ function displayGroups(groups)
       });
     });
   }
-  loadGroups();
+  displayGroups();
   
   

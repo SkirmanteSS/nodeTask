@@ -13,11 +13,11 @@ const formLogin = document.forms[0].addEventListener('submit', async (e) => {
         if (data.token) {
           sessionStorage.setItem("token", data.token);
           location.assign = './groups.html';
-          return;
+          return res.json();
         } else {
           logMessage.innerHTML = 'Mistake';
       } catch (err) {
       console.log(err)
-    }
+    };
 
-  /*gauti vertes*/;
+ 

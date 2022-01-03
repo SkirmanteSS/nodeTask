@@ -10,13 +10,13 @@ import { connectToDb } from "../../dbConfig.js";
 const router = express.Router();
 
 const userSchema = joi.object({
-  password: joi.string().min(6).max(255).required(),
+  password: joi.string().min(6).max(50).required(),
   email: joi.string().email().trim().lowercase().required(),
   fullName: joi.string().min(5).required(),
 });
 
 const loginSchema = joi.object({
-  password: joi.string().min(6).max(255).required(),
+  password: joi.string().min(6).max(50).required(),
   email: joi.string().email().trim().lowercase().required(),
 });
 
